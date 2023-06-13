@@ -6,9 +6,6 @@ from stable_baselines3.common.vec_env import DummyVecEnv
 import wandb
 
 
-device = "cpu" #"mps" if torch.backends.mps.is_available() else "cpu"
-print(f"Using device: {device}")
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="parameters for training loop",
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)

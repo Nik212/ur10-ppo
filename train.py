@@ -8,15 +8,11 @@ from gym.wrappers import FlattenObservation
 from stable_baselines3.common.vec_env import DummyVecEnv
 import wandb
 
-
-device = "cpu" #"mps" if torch.backends.mps.is_available() else "cpu"
-print(f"Using device: {device}")
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="parameters for training loop",
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("-m", "--model", default=str, help="model to use")
-    parser.add_argument("-n", "--num_envs", default=10, help="Number of enviroments to run")
+    parser.add_argument("-n", "--num_envs", default=2, type=int, help="Number of enviroments to run")
     parser.add_argument("-l", "--length", default=1000, type=int, help="episode length")
     parser.add_argument("-e", "--max_episodes", default=1000, type=int, help="max episodes")
     parser.add_argument("-ci", "--ckpt_interval", default=1, type=int, help="Save checkopoint after each *-th episode")

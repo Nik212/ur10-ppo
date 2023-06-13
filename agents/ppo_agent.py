@@ -3,7 +3,7 @@ import torch
 from torch import nn
 import wandb
 
-device = 'cpu'
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class Memory: 
     def __init__(self):

@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch.distributions import MultivariateNormal
 
-device = 'cpu'
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class ActorCritic(nn.Module):
     def __init__(self, state_dim, action_dim, action_std):
